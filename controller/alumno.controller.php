@@ -9,18 +9,18 @@ class AlumnoController{
         $this->model = new Alumno();
     }
     
-    public function Index(){
+    public function index(){
         require_once 'view/nav.php';
         require_once 'view/header.php';
         require_once 'view/alumno/alumno.php';
         require_once 'view/footer.php';
     }
     
-    public function Crud(){
+    public function crud(){
         $alm = new Alumno();
         
         if(isset($_REQUEST['id'])){
-            $alm = $this->model->Obtener($_REQUEST['id']);
+            $alm = $this->model->obtener($_REQUEST['id']);
         }
         
         require_once 'view/nav.php';
@@ -29,23 +29,23 @@ class AlumnoController{
         require_once 'view/footer.php';
     }
     
-    public function Guardar(){
+    public function guardar(){
         $alm = new Alumno();
         
-        $alm->id = $_REQUEST['id'];
-        $alm->Nombre = $_REQUEST['Nombre'];
-        $alm->Apellido = $_REQUEST['Apellido'];
-        $alm->Correo = $_REQUEST['Correo'];
-        $alm->Sexo = $_REQUEST['Sexo'];
-        $alm->FechaNacimiento = $_REQUEST['FechaNacimiento'];
+        $alm->setId($_REQUEST['id']);
+        $alm->setNombre($_REQUEST['Nombre']);
+        $alm->setApellido($_REQUEST['Apellido']);
+        $alm->setCorreo($_REQUEST['Correo']);
+        $alm->setSexo($_REQUEST['Sexo']);
+        $alm->setFechaNacimiento($_REQUEST['FechaNacimiento']);
 
-        $alm->id > 0 ? $this->model->Actualizar($alm) : $this->model->Registrar($alm);
+        $alm->getId() > 0 ? $this->model->actualizar($alm) : $this->model->registrar($alm);
         
         header('Location: index.php?c=Alumno');
     }
     
-    public function Eliminar(){
-        $this->model->Eliminar($_REQUEST['id']);
+    public function eliminar(){
+        $this->model->eliminar($_REQUEST['id']);
         header('Location: index.php?c=Alumno');
     }
 }

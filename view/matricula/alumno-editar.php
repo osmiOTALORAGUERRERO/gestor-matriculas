@@ -7,7 +7,7 @@
   <li class="active"><?php echo $alm->id != null ? $alm->Nombre : 'Nuevo Registro'; ?></li>
 </ol>
 
-<form id="frm-alumno" action="?c=Alumno&a=Guardar" method="post" enctype="multipart/form-data">
+<form id="frm-alumno" action="?c=Alumno&a=guardar" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $alm->id; ?>" />
     
     <div class="form-group">

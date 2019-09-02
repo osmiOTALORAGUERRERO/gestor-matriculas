@@ -4,13 +4,13 @@ class Alumno
 	private $pdo;
     
     private $id;
-    private $Nombre;
-    private $Apellido;
-    private $Sexo;
-    private $FechaRegistro;
-    private $FechaNacimiento;
-    private $Foto;
-    private $Correo;
+    private $nombre;
+    private $apellido;
+    private $sexo;
+    private $fechaRegistro;
+    private $fechaNacimiento;
+    private $foto;
+    private $correo;
 
 	public function __CONSTRUCT()
 	{
@@ -24,12 +24,10 @@ class Alumno
 		}
 	}
 
-	public function Listar()
+	public function listar()
 	{
 		try
 		{
-			$result = array();
-
 			$stm = $this->pdo->prepare("SELECT * FROM alumnos");
 			$stm->execute();
 
@@ -41,7 +39,7 @@ class Alumno
 		}
 	}
 
-	public function Obtener($id)
+	public function obtener($id)
 	{
 		try 
 		{
@@ -57,7 +55,7 @@ class Alumno
 		}
 	}
 
-	public function Eliminar($id)
+	public function eliminar($id)
 	{
 		try 
 		{
@@ -71,7 +69,7 @@ class Alumno
 		}
 	}
 
-	public function Actualizar($data)
+	public function actualizar($data)
 	{
 		try 
 		{
@@ -86,12 +84,12 @@ class Alumno
 			$this->pdo->prepare($sql)
 			     ->execute(
 				    array(
-                        $data->Nombre, 
-                        $data->Correo,
-                        $data->Apellido,
-                        $data->Sexo,
-                        $data->FechaNacimiento,
-                        $data->id
+                        $data->getNombre(), 
+                        $data->getApellido(),
+                        $data->getCorreo(),
+                        $data->getSexo(),
+                        $data->getFechaNacimiento(),
+                        $data->getid()
 					)
 				);
 		} catch (Exception $e) 
@@ -100,7 +98,7 @@ class Alumno
 		}
 	}
 
-	public function Registrar(Alumno $data)
+	public function registrar(Alumno $data)
 	{
 		try 
 		{
@@ -110,11 +108,11 @@ class Alumno
 		$this->pdo->prepare($sql)
 		     ->execute(
 				array(
-                    $data->Nombre,
-                    $data->Correo, 
-                    $data->Apellido, 
-                    $data->Sexo,
-                    $data->FechaNacimiento,
+                    $data->getNombre(),
+                    $data->getCorreo(), 
+                    $data->getApellido(), 
+                    $data->getSexo(),
+                    $data->getFechaNacimiento(),
                     date('Y-m-d')
                 )
 			);
