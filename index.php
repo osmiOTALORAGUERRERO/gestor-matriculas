@@ -6,10 +6,14 @@ $controller = 'alumno';
 // Todo esta lógica hara el papel de un FrontController
 if(!isset($_REQUEST['c']))
 {
-    require_once "controller/$controller.controller.php";
-    $controller = ucwords($controller) . 'Controller';
-    $controller = new $controller;
-    $controller->Index();    
+    require_once 'view/nav.php';
+    require_once 'view/header.php';
+    require_once 'view/bienvenida.php';
+    require_once 'view/footer.php';
+    // require_once "controller/$controller.controller.php";
+    // $controller = ucwords($controller) . 'Controller';
+    // $controller = new $controller;
+    // $controller->Index();    
 }
 else
 {

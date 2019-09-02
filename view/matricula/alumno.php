@@ -1,6 +1,6 @@
 <h1 class="page-header">Alumnos</h1>
 
-<div class="well well-sm text-right py-1 px-1">
+<div class="well well-sm text-right">
     <a class="btn btn-primary" href="?c=Alumno&a=Crud">Nuevo alumno</a>
 </div>
 

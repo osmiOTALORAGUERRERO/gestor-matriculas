@@ -10,6 +10,7 @@ class AlumnoController{
     }
     
     public function Index(){
+        require_once 'view/nav.php';
         require_once 'view/header.php';
         require_once 'view/alumno/alumno.php';
         require_once 'view/footer.php';
@@ -22,6 +23,7 @@ class AlumnoController{
             $alm = $this->model->Obtener($_REQUEST['id']);
         }
         
+        require_once 'view/nav.php';
         require_once 'view/header.php';
         require_once 'view/alumno/alumno-editar.php';
         require_once 'view/footer.php';
@@ -37,15 +39,13 @@ class AlumnoController{
         $alm->Sexo = $_REQUEST['Sexo'];
         $alm->FechaNacimiento = $_REQUEST['FechaNacimiento'];
 
-        $alm->id > 0 
-            ? $this->model->Actualizar($alm)
-            : $this->model->Registrar($alm);
+        $alm->id > 0 ? $this->model->Actualizar($alm) : $this->model->Registrar($alm);
         
-        header('Location: index.php');
+        header('Location: index.php?c=Alumno');
     }
     
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['id']);
-        header('Location: index.php');
+        header('Location: index.php?c=Alumno');
     }
 }

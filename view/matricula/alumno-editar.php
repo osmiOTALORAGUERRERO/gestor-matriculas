@@ -2,9 +2,9 @@
     <?php echo $alm->id != null ? $alm->Nombre : 'Nuevo Registro'; ?>
 </h1>
 
-<ol class="breadcrumb py-1">
-  <li class="breadcrumb-item"><a href="?c=Alumno">Alumnos</a></li>
-  <li class="breadcrumb-item active"><?php echo $alm->id != null ? $alm->Nombre : 'Nuevo Registro'; ?></li>
+<ol class="breadcrumb">
+  <li><a href="?c=Alumno">Alumnos</a></li>
+  <li class="active"><?php echo $alm->id != null ? $alm->Nombre : 'Nuevo Registro'; ?></li>
 </ol>
 
 <form id="frm-alumno" action="?c=Alumno&a=Guardar" method="post" enctype="multipart/form-data">
