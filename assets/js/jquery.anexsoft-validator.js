@@ -4,10 +4,13 @@ jQuery.fn.validate = function ()
     var _mensaje = {
         campo_obligatorio: 'Este campo es obligatorio',
         campo_numerico: 'Este campo no es numérico',
+        campo_decimal: 'Es campo no es el decimal solicitado',
         campo_correo: 'Este campo no es un correo',
         campo_longitud: 'Este campo debe tener una longitud de {0} caracteres',
         campo_min: 'Este campo debe tener como mínimo {0} caracteres',
         campo_max: 'Este campo debe tener como máximo {0} caracteres',
+        campo_valor_minimo: 'El campo tiene un valor menor',
+        campo_valor_maximo: 'El campo tiene un valor mayor',
         campo_valido: 'Este campo no es válido',
         campo_ip: 'Este campo no es una IP válida',
         campo_url: 'Este campo no es una URL válida',
@@ -30,7 +33,6 @@ jQuery.fn.validate = function ()
 
             /* El control actual del arreglo */
             var obj = $(this);
-
             /* No nos interesa validar controles con el estado readonly/disabled */
             if (!obj.prop('readonly') || !obj.prop('disabled'))
             {
@@ -88,7 +90,24 @@ jQuery.fn.validate = function ()
                                 return false; /* Rompe el bucle */
                             }
                         }
+                        /* Validamos si es numérico */
+                        if (v == 'decimal') {
 
+                            var RE = /^\d{0,1}(\.\d{1})?\d{0,0}$/;
+                            if (!obj.val().match(RE) && obj.val().length>0) {                                
+                                errores++;
+                                form_group.addClass('has-error');
+
+
+                                if (obj.data('validacion-mensaje') == undefined) {
+                                    small.text(_mensaje.campo_decimal);
+                                } else {
+                                    small.text(obj.data('validacion-mensaje'));
+                                }
+
+                                return false;
+                            }
+                        }
                         /* Validamos si es un email */
                         if (v == 'email') {
                             if (!obj.val().match(/^[0-9a-z_\-\.]+@[0-9a-z\-\.]+\.[a-z]{2,4}$/i) && obj.val().length > 0) {
@@ -161,6 +180,47 @@ jQuery.fn.validate = function ()
 
                                 if (obj.data('validacion-mensaje') == undefined) {
                                     small.text(_mensaje.campo_max.replace('{0}', _min[1]));
+                                } else {
+                                    small.text(obj.data('validacion-mensaje'));
+                                }
+
+                                return false; /* Rompe el bucle */
+                            }
+                        }
+
+                        /* Cantidad minima de caracteres */
+                        if (v.indexOf('val-min') > -1 && obj.val().length > 0) {
+
+                            // Necesitamos saber la longitud máxima
+                            var _min = v.split(':');
+                            if (obj.val() < _min[1]) {
+
+                                errores++;
+                                form_group.addClass('has-error');
+
+                                /* Mostramos el mensaje */
+                                if (obj.data('validacion-mensaje') == undefined) {
+                                    small.text(_mensaje.campo_valor_minimo);
+                                } else {
+                                    small.text(obj.data('validacion-mensaje'));
+                                }
+
+                                return false; /* Rompe el bucle */
+                            }
+                        }
+
+                        /* Cantidad maxima de caracteres */
+                        if (v.indexOf('val-max') > -1 && obj.val().length > 0) {
+
+                            // Necesitamos saber la longitud máxima
+                            var _min = v.split(':');
+                            if (obj.val() > _min[1]) {
+
+                                errores++;
+                                form_group.addClass('has-error');
+
+                                if (obj.data('validacion-mensaje') == undefined) {
+                                    small.text(_mensaje.campo_valor_maximo);
                                 } else {
                                     small.text(obj.data('validacion-mensaje'));
                                 }

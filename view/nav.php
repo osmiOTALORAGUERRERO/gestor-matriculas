@@ -14,7 +14,7 @@
           <a class="nav-link" href="?c=Matricula">Matriculas</a>
         </li>
         <li class="nav-item <?php echo $_REQUEST['c']=='Nota' ? 'active':'';?>">
-          <a class="nav-link" href="?=Nota">Notas</a>
+          <a class="nav-link" href="?c=Nota">Notas</a>
         </li>
     </div>
   

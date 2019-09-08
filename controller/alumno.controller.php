@@ -20,7 +20,15 @@ class AlumnoController{
         $alm = new Alumno();
         
         if(isset($_REQUEST['id'])){
-            $alm = $this->model->obtener($_REQUEST['id']);
+            $result = $this->model->obtener($_REQUEST['id']);
+            $alm->setId($result->id);
+            $alm->setNombre($result->Nombre);
+            $alm->setApellido($result->Apellido);
+            $alm->setSexo($result->Sexo);
+            $alm->setFechaNacimiento($result->FechaNacimiento);
+            $alm->setFechaRegistro($result->FechaRegistro);
+            $alm->setFoto($result->Foto);
+            $alm->setCorreo($result->Correo);
         }
         
         require_once 'view/nav.php';

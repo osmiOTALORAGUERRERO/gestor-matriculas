@@ -147,7 +147,7 @@ class Alumno
      */ 
     public function getNombre()
     {
-        return $this->Nombre;
+        return $this->nombre;
     }
 
     /**
@@ -155,9 +155,9 @@ class Alumno
      *
      * @return  self
      */ 
-    public function setNombre($Nombre)
+    public function setNombre($nombre)
     {
-        $this->Nombre = $Nombre;
+        $this->nombre = $nombre;
 
         return $this;
     }
@@ -167,7 +167,7 @@ class Alumno
      */ 
     public function getApellido()
     {
-        return $this->Apellido;
+        return $this->apellido;
     }
 
     /**
@@ -175,9 +175,9 @@ class Alumno
      *
      * @return  self
      */ 
-    public function setApellido($Apellido)
+    public function setApellido($apellido)
     {
-        $this->Apellido = $Apellido;
+        $this->apellido = $apellido;
 
         return $this;
     }
@@ -187,7 +187,7 @@ class Alumno
      */ 
     public function getSexo()
     {
-        return $this->Sexo;
+        return $this->sexo;
     }
 
     /**
@@ -195,9 +195,9 @@ class Alumno
      *
      * @return  self
      */ 
-    public function setSexo($Sexo)
+    public function setSexo($sexo)
     {
-        $this->Sexo = $Sexo;
+        $this->sexo = $sexo;
 
         return $this;
     }
@@ -207,7 +207,7 @@ class Alumno
      */ 
     public function getFechaRegistro()
     {
-        return $this->FechaRegistro;
+        return $this->fechaRegistro;
     }
 
     /**
@@ -215,9 +215,9 @@ class Alumno
      *
      * @return  self
      */ 
-    public function setFechaRegistro($FechaRegistro)
+    public function setFechaRegistro($fechaRegistro)
     {
-        $this->FechaRegistro = $FechaRegistro;
+        $this->fechaRegistro = $fechaRegistro;
 
         return $this;
     }
@@ -227,7 +227,7 @@ class Alumno
      */ 
     public function getFechaNacimiento()
     {
-        return $this->FechaNacimiento;
+        return $this->fechaNacimiento;
     }
 
     /**
@@ -235,9 +235,9 @@ class Alumno
      *
      * @return  self
      */ 
-    public function setFechaNacimiento($FechaNacimiento)
+    public function setFechaNacimiento($fechaNacimiento)
     {
-        $this->FechaNacimiento = $FechaNacimiento;
+        $this->fechaNacimiento = $fechaNacimiento;
 
         return $this;
     }
@@ -247,7 +247,7 @@ class Alumno
      */ 
     public function getFoto()
     {
-        return $this->Foto;
+        return $this->foto;
     }
 
     /**
@@ -255,9 +255,9 @@ class Alumno
      *
      * @return  self
      */ 
-    public function setFoto($Foto)
+    public function setFoto($foto)
     {
-        $this->Foto = $Foto;
+        $this->foto = $foto;
 
         return $this;
     }
@@ -267,7 +267,7 @@ class Alumno
      */ 
     public function getCorreo()
     {
-        return $this->Correo;
+        return $this->correo;
     }
 
     /**
@@ -275,9 +275,9 @@ class Alumno
      *
      * @return  self
      */ 
-    public function setCorreo($Correo)
+    public function setCorreo($correo)
     {
-        $this->Correo = $Correo;
+        $this->correo = $correo;
 
         return $this;
     }
