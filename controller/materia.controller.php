@@ -29,6 +29,8 @@ class MateriaController
     {
         $materia = new Materia();
         $materia->setNombre($_REQUEST['Nombre']);
+        $materia->setCreditos($_REQUEST['Creditos']);
+        $materia->setId($_REQUEST['id']);
         $materia->getId() > 0 ? $materia->actualizar() : $materia->registrar();
         
         header('location: index.php?c=Materia');

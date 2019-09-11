@@ -8,6 +8,7 @@
     <thead>
         <tr>
             <th style="width:180px;">Nombre</th>
+            <th style="width:100px;">Creditos</th>
             <th style="width:60px;"></th>
             <th style="width:60px;"></th>
         </tr>
@@ -16,7 +17,7 @@
     <?php foreach($materia->listar() as $r): ?>
         <tr>
             <td><?php echo $r->Nombre; ?></td>
-            
+            <td><?php echo $r->Creditos; ?></td>
             <td>
                 <a href="?c=Materia&a=crud&id=<?php echo $r->id; ?>">Editar</a>
             </td>

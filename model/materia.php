@@ -3,6 +3,7 @@ class Materia
 {
     private $id;
     private $nombre;
+    private $creditos;
     private $pdo;
 
     public function __construct()
@@ -39,23 +40,25 @@ class Materia
             $result = $stm->fetch(PDO::FETCH_OBJ);
             $this->id = $result->id;
             $this->nombre = $result->Nombre;
+            $this->creditos = $result->Creditos;
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
 		}
     }
 
-    public function actualizar($id)
+    public function actualizar()
     {
         try 
 		{
-			$sql = "UPDATE cursos SET Nombre = ? WHERE id = ?";
+			$sql = "UPDATE cursos SET Nombre = ?, Creditos = ? WHERE id = ?";
 
 			$this->pdo->prepare($sql)
 			    ->execute(
 				    array(
-                        $data->getNombre(), 
-                        $data->getid()
+                        $this->nombre, 
+                        $this->creditos,
+                        $this->id
 					)
 				);
 		} catch (Exception $e) 
@@ -68,12 +71,13 @@ class Materia
     {
         try 
 		{
-		$sql = "INSERT INTO cursos (Nombre) VALUES (?)";
+		$sql = "INSERT INTO cursos (Nombre, Creditos) VALUES (?,?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
 				array(
-                    $this->nombre
+                    $this->nombre,
+                    $this->creditos
                 )
 			);
 		} catch (Exception $e) 
@@ -130,6 +134,26 @@ class Materia
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of nombre
+     */ 
+    public function getCreditos()
+    {
+        return $this->creditos;
+    }
+
+    /**
+     * Set the value of nombre
+     *
+     * @return  self
+     */ 
+    public function setCreditos($creditos)
+    {
+        $this->creditos = $creditos;
 
         return $this;
     }
