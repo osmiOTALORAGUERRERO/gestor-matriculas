@@ -14,7 +14,10 @@
         <label>Nombre</label>
         <input type="text" name="Nombre" value="<?php echo $materia->getNombre(); ?>" class="form-control" placeholder="Ingrese el nombre de la materia" data-validacion-tipo="requerido|min:3" />
     </div>
-    
+    <div class="form-group">
+        <label>Creditos</label>
+        <input type="text" name="Creditos" value="<?php echo $materia->getCreditos(); ?>" class="form-control" placeholder="Ingrese el nombre de la materia" data-validacion-tipo="requerido|numero|longitud:1" />
+    </div>
     <hr />
     
     <div class="text-right">
