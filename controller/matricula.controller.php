@@ -18,8 +18,8 @@ class MatriculaController
     {
         $matricula = new Matricula();
 
-        require_once 'view/nav.php';
         require_once 'view/header.php';
+        require_once 'view/nav.php';
         require_once 'view/matricula/matriculas.php';
         require_once 'view/footer.php';
     }
@@ -33,8 +33,8 @@ class MatriculaController
             $matricula->obtener($_REQUEST['id'], $alumnoMatricula);
         }
         
-        require_once 'view/nav.php';
         require_once 'view/header.php';
+        require_once 'view/nav.php';
         require_once 'view/matricula/matricula-editar.php';
         require_once 'view/footer.php';
     }

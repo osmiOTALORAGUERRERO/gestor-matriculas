@@ -3,6 +3,7 @@
                     <hr />
                     <footer class="text-center well py-2">
                         <p>Ejemplo MVC Alumno</p>
+                        <p>Santiago Otalora - Fundamentos Web</p>
                     </footer>                
                 </div>    
             </div>

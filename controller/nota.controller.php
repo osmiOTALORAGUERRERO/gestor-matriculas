@@ -13,8 +13,8 @@ class NotaController
     public function index()
     {
         $nota = new Nota();
-        require_once 'view/nav.php';
         require_once 'view/header.php';
+        require_once 'view/nav.php';
         require_once 'view/notas/notas.php';
         require_once 'view/footer.php';
     }
@@ -24,8 +24,8 @@ class NotaController
         $nota = new Nota();
         $materias = $nota->obtener($_REQUEST['id']);
         $nota->setAlumno($this->alumno->obtener($_REQUEST['id']));
-        require_once 'view/nav.php';
         require_once 'view/header.php';
+        require_once 'view/nav.php';
         require_once 'view/notas/nota-editar.php';
         require_once 'view/footer.php';
     }
@@ -38,6 +38,17 @@ class NotaController
             $nota->calificar($_REQUEST['id'], $materia->id, $_REQUEST[$materia->id]);
         }
         header('location: index.php?c=Nota');
+    }
+
+    public function revisar()
+    {
+        $nota = new Nota();
+        $materias = $nota->obtener($_REQUEST['id']);
+        $nota->setAlumno($this->alumno->obtener($_REQUEST['id']));
+        require_once 'view/header.php';
+        require_once 'view/nav.php';
+        require_once 'view/notas/nota-ver.php';
+        require_once 'view/footer.php';
     }
 }
 

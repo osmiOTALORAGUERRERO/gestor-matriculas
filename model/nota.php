@@ -43,7 +43,7 @@ class Nota
     {
         try 
 		{
-			$stm = $this->pdo->prepare("SELECT id, Nombre, Nota from alumno_curso
+			$stm = $this->pdo->prepare("SELECT id, Nombre, Nota, Creditos from alumno_curso
                 JOIN cursos ON alumno_curso.Curso_id=cursos.id
                 WHERE Alumno_id = ?");
 			$stm->execute(array($idAlumno));

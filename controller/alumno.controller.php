@@ -10,8 +10,8 @@ class AlumnoController{
     }
     
     public function index(){
-        require_once 'view/nav.php';
         require_once 'view/header.php';
+        require_once 'view/nav.php';
         require_once 'view/alumno/alumno.php';
         require_once 'view/footer.php';
     }
@@ -31,8 +31,8 @@ class AlumnoController{
             $alm->setCorreo($result->Correo);
         }
         
-        require_once 'view/nav.php';
         require_once 'view/header.php';
+        require_once 'view/nav.php';
         require_once 'view/alumno/alumno-editar.php';
         require_once 'view/footer.php';
     }
