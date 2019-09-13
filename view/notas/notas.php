@@ -10,6 +10,7 @@
             <th style="width:180px;">Matricula</th>
             <th style="width:180px;">Materias</th>
             <th style="width:60px;"></th>
+            <th style="width:60px;"></th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,9 @@
             <td><?php echo $r->Materias ?></td>
             <td>
                 <a href="?c=Nota&a=crud&id=<?php echo $r->Alumno_id; ?>">Calificar</a>
+            </td>
+            <td>
+                <a href="?c=Nota&a=revisar&id=<?php echo $r->Alumno_id; ?>">Visualizar</a>
             </td>
         </tr>
     <?php endforeach; ?>

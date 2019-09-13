@@ -6,8 +6,8 @@ class MateriaController
     public function index()
     {
         $materia = new Materia();
-        require_once 'view/nav.php';
         require_once 'view/header.php';
+        require_once 'view/nav.php';
         require_once 'view/materia/materias.php';
         require_once 'view/footer.php';
     }
@@ -20,8 +20,8 @@ class MateriaController
             $materia->obtener($_REQUEST['id']);
         }
 
-        require_once 'view/nav.php';
         require_once 'view/header.php';
+        require_once 'view/nav.php';
         require_once 'view/materia/materia-editar.php';
         require_once 'view/footer.php';
     }

@@ -10,8 +10,8 @@ $controller = '';
 // Todo esta lógica hara el papel de un FrontController
 if(!isset($_REQUEST['c']))
 {
-    require_once 'view/nav.php';
     require_once 'view/header.php';
+    require_once 'view/nav.php';
     require_once 'view/bienvenida.php';
     require_once 'view/footer.php';    
 }

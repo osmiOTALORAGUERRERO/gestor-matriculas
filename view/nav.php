@@ -1,4 +1,4 @@
-<div class="container"> 
+<div> 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.php">Bienvenido</a>
   
